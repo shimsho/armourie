@@ -12,7 +12,7 @@ export const MiscContext = React.createContext<MiscContextProps>({
         ethereum: 0,
         solana: 0,
         light: false,
-        currency: "USD"
+        currency: "USD",
     }
 });
 

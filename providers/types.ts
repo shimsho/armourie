@@ -1,4 +1,5 @@
 export type WalletData = {
+    processing: boolean,
     wallet: string
 }
 

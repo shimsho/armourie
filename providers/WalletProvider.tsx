@@ -27,18 +27,21 @@ const getAccount = async () => {
 
 export const WalletContext = React.createContext<WalletContextProps>({
     walletData: {
+        processing: false,
         wallet: ""
     },
     connect: getAccount
 });
 
 const WalletProvider: React.FC = ({ children }) => {
-    const [walletData, setWalletData] = React.useState({ wallet: "" } as WalletData);
+    const [walletData, setWalletData] = React.useState({ processing: false, wallet: "" } as WalletData);
 
     async function connect() {
+        setWalletData({ processing: true, wallet: "" });
         const response = await getAccount();
 
-        setWalletData({ wallet: response });
+        if (response.length === 42) setWalletData({ processing: false, wallet: response });
+        else setWalletData({ processing: false, wallet: "" });
     }
 
     return (
