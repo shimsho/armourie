@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
 html,
 body {
+  min-height: 100vh;
+  width: 100%;
+  background: #0D0C11;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -13,4 +18,9 @@ a {
 
 * {
   box-sizing: border-box;
+  user-select: none;
+}
+
+.spacer {
+  width: 100%;
 }
