@@ -28,12 +28,13 @@ const Root = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    background: rgba(0,0,0,0.25);
+    background: rgba(0,0,0,0.75);
     & > .wrapper-modal {
         border: 1px solid rgba(255,255,255,0.025);
         padding: 10px;
         margin: auto;
         position: relative;
+        animation: fadeIn 333ms ease normal forwards 1;
         & > .corner {
             position: absolute;
             border-top: 1px solid #a9ff53;
@@ -42,6 +43,7 @@ const Root = styled.div`
             left: 0;
             width: 10px;
             height: 10px;
+            animation: flash 500ms normal forwards 1;
             &:nth-child(2) {
                 top: unset;
                 bottom: 0;
@@ -75,6 +77,41 @@ const Root = styled.div`
                 font-family: Poppins, Roboto;
                 color: white;
             }
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+    }
+
+    @keyframes flash {
+        0% {
+          opacity: 1;
+        }
+    
+        10% {
+          opacity: 0;
+        }
+    
+        20% {
+          opacity: 1;
+        }
+    
+        30% {
+          opacity: 0;
+        }
+    
+        40% {
+          opacity: 1;
+        }
+    
+        to {
+          opacity: 1;
         }
     }
 `

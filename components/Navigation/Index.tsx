@@ -24,7 +24,8 @@ export const Navigation = () => {
                 <div className="navigation-top--btn">SOL <span className="price">${parsePrice(miscData.solana)}</span></div>
             </div>
             <header>
-                <Image src="/assets/logo.svg" width={174} height={40} />
+                <Image className="icon" src="/assets/icon.svg" alt="icon" width={46} height={46} />
+                <p>armourie</p>
 
                 <div className="navigation-right">
                     <div className="navigation-right--btn">explore</div>
@@ -44,6 +45,7 @@ const Root = styled.div`
     & > .navigation-top {
         display: flex;
         margin: 10px 0;
+        @media only screen and (max-width: 800px) { display: none; }
         & > .navigation-top--btn {
             font-family: Poppins, Roboto;
             font-weight: 400;
@@ -65,6 +67,14 @@ const Root = styled.div`
     & > header {
         display: flex;
         margin: 20px 0;
+        & > p {
+            font-family: Poppins, Roboto;
+            font-weight: 600;
+            font-size: 26px;
+            margin: auto 0 auto 20px;
+            color: white;
+            @media only screen and (max-width: 600px) { display: none }
+        }
         & > .navigation-right {
             display: flex;
             margin: auto 0 auto auto;
@@ -76,7 +86,9 @@ const Root = styled.div`
                 opacity: 0.4;
                 margin: auto 50px auto 0;
                 cursor: pointer;
-                transition: 333ms ease;
+                transition: color 333ms ease, opacity 333ms ease;
+                @media only screen and (max-width: 1000px) { margin: auto 20px auto 0 }
+                @media only screen and (max-width: 800px) { display: none }
                 &:hover {
                     color: #A9FF53;
                     opacity: 1;
