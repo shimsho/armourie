@@ -7,13 +7,9 @@ import styled from '@emotion/styled';
 
 import { Meta } from '../components/Meta';
 
-import { useWalletData } from '../providers/WalletProvider';
 import { Gateway } from '../components/Modals/Gateway';
-import { useEffect } from 'react';
 
 const Home: NextPage = () => {
-  const { walletData } = useWalletData();
-
   return (
     <Root>
       <Meta title={'Home'} />
@@ -43,12 +39,6 @@ const Home: NextPage = () => {
           <div className="direction--block" />
         </div>
       </main>
-
-      <footer>
-        <p>© 2022 Armourie. All rights reserved</p>
-        <p>Built in Next.JS</p>
-      </footer>
-      {walletData.processing ? <Gateway /> : ''}
     </Root>
   )
 }

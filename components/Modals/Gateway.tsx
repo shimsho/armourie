@@ -3,8 +3,12 @@ import styled from "@emotion/styled";
 
 import CircularProgress from '@mui/material/CircularProgress';
 
+import { useWalletData } from '../../providers/WalletProvider';
+
 export const Gateway = () => {
-  return (
+  const { walletData } = useWalletData();
+
+  if (walletData.processing) return (
     <Root>
       <div className="wrapper-modal">
         <div className="corner" />
@@ -18,7 +22,9 @@ export const Gateway = () => {
         </div>
       </div>
     </Root>
-  );
+  )
+
+  return (<React.Fragment></React.Fragment>);
 };
 
 const Root = styled.div`

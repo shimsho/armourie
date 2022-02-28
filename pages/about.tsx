@@ -4,10 +4,10 @@ import styled from '@emotion/styled';
 import { Meta } from '../components/Meta';
 import { Construction } from '../components/Construction';
 
-const Explore: NextPage = () => {
+const About: NextPage = () => {
     return (
         <Root>
-            <Meta title={'Explore'} />
+            <Meta title={'About'} />
             <Construction />
         </Root>
     )
@@ -23,4 +23,4 @@ const Root = styled.div`
     @media only screen and (max-width: 1550px) { max-width: calc(100% - 50px) }
 `
 
-export default Explore
+export default About

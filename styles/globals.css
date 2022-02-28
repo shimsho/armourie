@@ -26,3 +26,36 @@ a {
 .spacer {
   width: 100%;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+footer > p {
+  font-family: 'Poppins', Roboto;
+  font-weight: 400;
+  font-size: 14px;
+  color: white;
+}
+
+@media only screen and (max-width: 1550px) {
+  footer {
+    max-width: calc(100% - 50px);
+  }  
+}
+
+@media only screen and (max-width: 600px) {
+  footer > p {
+    font-size: 12px;
+  }  
+}

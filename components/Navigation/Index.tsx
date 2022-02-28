@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from 'next/router';
 
 import styled from '@emotion/styled';
 
@@ -10,6 +11,7 @@ import { parsePrice } from '../../helpers/index';
 
 export const Navigation = () => {
     const { miscData } = useMiscData();
+    const router = useRouter();
 
     return (
         <Root>
@@ -38,11 +40,21 @@ export const Navigation = () => {
                 </Link>
 
                 <div className="navigation-right">
-                    <Link href="/explore"><div className="navigation-right--btn">explore</div></Link>
-                    <Link href="/explore"><div className="navigation-right--btn">gallery</div></Link>
-                    <Link href="/explore"><div className="navigation-right--btn">marketplace</div></Link>
-                    <Link href="/explore"><div className="navigation-right--btn">workshop</div></Link>
-                    <Link href="/explore"><div className="navigation-right--btn">about</div></Link>
+                    <Link href="/explore">
+                        <div className={router.pathname == "/explore" ? "navigation-right--btn active" : "navigation-right--btn"}>explore</div>
+                    </Link>
+                    <Link href="/gallery">
+                        <div className={router.pathname == "/gallery" ? "navigation-right--btn active" : "navigation-right--btn"}>gallery</div>
+                    </Link>
+                    <Link href="/marketplace">
+                        <div className={router.pathname == "/marketplace" ? "navigation-right--btn active" : "navigation-right--btn"}>marketplace</div>
+                    </Link>
+                    <Link href="/workshop">
+                        <div className={router.pathname == "/workshop" ? "navigation-right--btn active" : "navigation-right--btn"}>workshop</div>
+                    </Link>
+                    <Link href="/about">
+                        <div className={router.pathname == "/about" ? "navigation-right--btn active" : "navigation-right--btn"}>about</div>
+                    </Link>
 
                     <Connect />
                 </div>
@@ -109,7 +121,7 @@ const Root = styled.div`
                 transition: color 333ms ease, opacity 333ms ease;
                 @media only screen and (max-width: 1000px) { margin: auto 20px auto 0 }
                 @media only screen and (max-width: 800px) { display: none }
-                &:hover {
+                &:hover, &.active {
                     color: #A9FF53;
                     opacity: 1;
                 }

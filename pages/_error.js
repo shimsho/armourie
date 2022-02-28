@@ -1,11 +1,7 @@
+import { Construction } from "../components/Construction";
+
 function Error({ statusCode }) {
-  return (
-    <p>
-      {statusCode
-        ? `An error ${statusCode} occurred on server`
-        : "An error occurred on client"}
-    </p>
-  );
+  return <Construction />;
 }
 
 Error.getInitialProps = ({ res, err }) => {
