@@ -1,9 +1,9 @@
-import styled from '@emotion/styled'
-
-import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 
-import { Connect } from './Connect'
+import styled from '@emotion/styled';
+
+import { Connect } from './Connect';
 
 import { useMiscData } from '../../providers/MiscProvider';
 import { parsePrice } from '../../helpers/index';
@@ -24,15 +24,25 @@ export const Navigation = () => {
                 <div className="navigation-top--btn">SOL <span className="price">${parsePrice(miscData.solana)}</span></div>
             </div>
             <header>
-                <Image className="icon" src="/assets/icon.svg" alt="icon" width={46} height={46} />
-                <p>armourie</p>
+                <Link href="/">
+                    <div className="logo">
+                        <Image
+                            className="icon"
+                            src="/assets/icon.svg"
+                            alt="icon"
+                            width={46}
+                            height={46}
+                        />
+                        <p>armourie</p>
+                    </div>
+                </Link>
 
                 <div className="navigation-right">
-                    <div className="navigation-right--btn">explore</div>
-                    <div className="navigation-right--btn">gallery</div>
-                    <div className="navigation-right--btn">marketplace</div>
-                    <div className="navigation-right--btn">workshop</div>
-                    <div className="navigation-right--btn">about</div>
+                    <Link href="/explore"><div className="navigation-right--btn">explore</div></Link>
+                    <Link href="/explore"><div className="navigation-right--btn">gallery</div></Link>
+                    <Link href="/explore"><div className="navigation-right--btn">marketplace</div></Link>
+                    <Link href="/explore"><div className="navigation-right--btn">workshop</div></Link>
+                    <Link href="/explore"><div className="navigation-right--btn">about</div></Link>
 
                     <Connect />
                 </div>
@@ -42,6 +52,12 @@ export const Navigation = () => {
 };
 
 const Root = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1480px;
+    margin: 0 auto;
+    @media only screen and (max-width: 1550px) { max-width: calc(100% - 50px) }
     & > .navigation-top {
         display: flex;
         margin: 10px 0;
@@ -67,13 +83,17 @@ const Root = styled.div`
     & > header {
         display: flex;
         margin: 20px 0;
-        & > p {
-            font-family: Poppins, Roboto;
-            font-weight: 600;
-            font-size: 26px;
-            margin: auto 0 auto 20px;
-            color: white;
-            @media only screen and (max-width: 600px) { display: none }
+        & > .logo {
+            display: flex;
+            cursor: pointer;
+            & > p {
+                font-family: Poppins, Roboto;
+                font-weight: 600;
+                font-size: 26px;
+                margin: auto 0 auto 20px;
+                color: white;
+                @media only screen and (max-width: 600px) { display: none }
+            }
         }
         & > .navigation-right {
             display: flex;

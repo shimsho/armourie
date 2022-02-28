@@ -4,21 +4,21 @@ import styled from "@emotion/styled";
 import CircularProgress from '@mui/material/CircularProgress';
 
 export const Gateway = () => {
-    return (
-        <Root>
-            <div className="wrapper-modal">
-                <div className="corner" />
-                <div className="corner" />
-                <div className="corner" />
-                <div className="corner" />
+  return (
+    <Root>
+      <div className="wrapper-modal">
+        <div className="corner" />
+        <div className="corner" />
+        <div className="corner" />
+        <div className="corner" />
 
-                <div className="modal">
-                    <CircularProgress />
-                    <p>Connecting...</p>
-                </div>
-            </div>
-        </Root>
-    );
+        <div className="modal">
+          <CircularProgress />
+          <p>Connecting...</p>
+        </div>
+      </div>
+    </Root>
+  );
 };
 
 const Root = styled.div`
@@ -35,6 +35,10 @@ const Root = styled.div`
         margin: auto;
         position: relative;
         animation: fadeIn 333ms ease normal forwards 1;
+        width: 100%;
+        max-width: 300px;
+        height: 400px;
+        @media only screen and (max-width: 400px) { max-width: calc(100% - 50px) }
         & > .corner {
             position: absolute;
             border-top: 1px solid #a9ff53;
@@ -67,9 +71,9 @@ const Root = styled.div`
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            width: 300px;
-            height: 400px;
             background: #100f15;
+            width: 100%;
+            height: 100%;
             & > .MuiCircularProgress-root {
                 color: #a9ff53;
             }

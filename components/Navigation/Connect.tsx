@@ -29,6 +29,7 @@ const Root = styled(motion.div)`
     font-weight: 600;
     font-size: 14px;
     background: #A9FF53;
+    box-shadow: inset 0px 1px 0px #c0ff00;
     padding: 7px;
     border-radius: 5px;
     cursor: pointer;

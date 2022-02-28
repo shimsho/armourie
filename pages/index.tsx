@@ -1,10 +1,11 @@
 import type { NextPage } from 'next';
 import Image from "next/image";
 
+import { motion } from 'framer-motion';
+
 import styled from '@emotion/styled';
 
 import { Meta } from '../components/Meta';
-import { Navigation } from '../components/Navigation/Index';
 
 import { useWalletData } from '../providers/WalletProvider';
 import { Gateway } from '../components/Modals/Gateway';
@@ -15,9 +16,7 @@ const Home: NextPage = () => {
 
   return (
     <Root>
-      <Meta />
-      <Navigation />
-
+      <Meta title={'Home'} />
       <main className="landing-container">
         <div className="landing-vector">
           <img className="vector--image" src="/assets/glow.png" alt="glow" />
@@ -31,8 +30,8 @@ const Home: NextPage = () => {
             <p>armourie turns you digital artwork into gaming weaponry , clothing and accessories, with full access to models and assets for any game.</p>
 
             <div className="vector-btns">
-              <div className="vector--btn">Submit artwork</div>
-              <div className="vector--btn">View marketplace</div>
+              <motion.div whileHover={{ scale: 1.025 }} whileTap={{ scale: 0.95, transition: { duration: 0.05 } }} className="vector--btn">Submit artwork</motion.div>
+              <motion.div whileHover={{ scale: 1.025 }} whileTap={{ scale: 0.95, transition: { duration: 0.05 } }} className="vector--btn">View marketplace</motion.div>
             </div>
           </div>
         </div>
@@ -66,7 +65,7 @@ const Root = styled.div`
     & > .landing-vector {
       display: flex;
       position: relative;
-      padding: 68px 0;
+      padding: 63px 0;
       @media only screen and (max-width: 800px) { padding: 0; }
       & > .vector--image {
         position: absolute;
@@ -141,6 +140,9 @@ const Root = styled.div`
             border-radius: 30px;
             margin-left: 15px;
             text-align: center;
+            cursor: pointer;
+            transition: background 333ms ease;
+            box-shadow: inset 0px 1px 0px #c0ff00;
             @media only screen and (max-width: 600px) {
               width: calc(100% / 2 - 5px); 
               font-size: 12px; 

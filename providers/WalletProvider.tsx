@@ -37,11 +37,13 @@ const WalletProvider: React.FC = ({ children }) => {
     const [walletData, setWalletData] = React.useState({ processing: false, wallet: "" } as WalletData);
 
     async function connect() {
-        setWalletData({ processing: true, wallet: "" });
-        const response = await getAccount();
+        if (walletData.wallet.length !== 42) {
+            setWalletData({ processing: true, wallet: "" });
+            const response = await getAccount();
 
-        if (response.length === 42) setWalletData({ processing: false, wallet: response });
-        else setWalletData({ processing: false, wallet: "" });
+            if (response.length === 42) setWalletData({ processing: false, wallet: response });
+            else setWalletData({ processing: false, wallet: "" });
+        } else return;
     }
 
     return (
