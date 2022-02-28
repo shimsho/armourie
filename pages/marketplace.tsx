@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import styled from '@emotion/styled';
 
-import { Meta } from '../components/Meta';
+import { Meta } from '@/components/Meta';
 
 import Skeleton from '@mui/material/Skeleton';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';

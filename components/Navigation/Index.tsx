@@ -6,8 +6,8 @@ import styled from '@emotion/styled';
 
 import { Connect } from './Connect';
 
-import { useMiscData } from '../../providers/MiscProvider';
-import { parsePrice } from '../../helpers/index';
+import { useMiscData } from '@/providers/MiscProvider';
+import { parsePrice } from '@/helpers/index';
 import { useEffect } from "react";
 
 export const Navigation = () => {

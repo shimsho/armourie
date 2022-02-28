@@ -1,14 +1,14 @@
-import '../styles/globals.css'
+import '@/styles/globals.css'
 import { useState } from 'react'
 import NextNProgress from "nextjs-progressbar";
 
 import type { AppProps } from 'next/app'
 
-import { Navigation } from '../components/Navigation/Index';
-import { Gateway } from '../components/Modals/Gateway';
+import { Navigation } from '@/components/Navigation/Index';
+import { Gateway } from '@/components/Modals/Gateway';
 
-import { WalletProvider } from "../providers/WalletProvider";
-import { MiscProvider } from "../providers/MiscProvider";
+import { WalletProvider } from "@/providers/WalletProvider";
+import { MiscProvider } from "@/providers/MiscProvider";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

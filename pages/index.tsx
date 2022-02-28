@@ -5,9 +5,8 @@ import { motion } from 'framer-motion';
 
 import styled from '@emotion/styled';
 
-import { Meta } from '../components/Meta';
-
-import { Gateway } from '../components/Modals/Gateway';
+import { Meta } from '@/components/Meta';
+import { Gateway } from '@/components/Modals/Gateway';
 
 const Home: NextPage = () => {
   return (
@@ -167,17 +166,6 @@ const Root = styled.div`
           opacity: 0.5;
         }
       }
-    }
-  }
-  & > footer {
-    display: flex;
-    justify-content: space-between;
-    & > p {
-      font-family: Poppins, Roboto;
-      font-weight: 400;
-      font-size: 14px;
-      color: white;
-      @media only screen and (max-width: 600px) { font-size: 12px; }
     }
   }
 `

@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 
 import InputIcon from '@mui/icons-material/Input'
-import { useWalletData } from '../../providers/WalletProvider';
+import { useWalletData } from '@/providers/WalletProvider';
 
 export const Connect = () => {
     const { connect, walletData } = useWalletData();

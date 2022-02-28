@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
 import styled from '@emotion/styled';
 
-import { Meta } from '../components/Meta';
-import { Construction } from '../components/Construction';
+import { Meta } from '@/components/Meta';
+import { Construction } from '@/components/Construction';
 
 const About: NextPage = () => {
     return (
