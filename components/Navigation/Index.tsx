@@ -8,16 +8,20 @@ import { Connect } from './Connect';
 
 import { useMiscData } from '../../providers/MiscProvider';
 import { parsePrice } from '../../helpers/index';
+import { useEffect } from "react";
 
 export const Navigation = () => {
-    const { miscData } = useMiscData();
+    const { changeLight, miscData } = useMiscData();
     const router = useRouter();
 
     return (
         <Root>
             <div className="navigation-top">
                 <div className="navigation-top--btn">AUD</div>
-                <div className="navigation-top--btn">LIGHT MODE</div>
+                <div onClick={changeLight} className="navigation-top--btn">
+                    LIGHT MODE
+                    <div className={!miscData.light ? "switch active" : "switch"} />
+                </div>
 
                 <div className="spacer" />
 
@@ -75,6 +79,7 @@ const Root = styled.div`
         margin: 10px 0;
         @media only screen and (max-width: 800px) { display: none; }
         & > .navigation-top--btn {
+            display: flex;
             font-family: Poppins, Roboto;
             font-weight: 400;
             font-size: 12px;
@@ -86,9 +91,39 @@ const Root = styled.div`
             margin-right: 8px;
             white-space: nowrap;
             &:last-child { margin-right: 0 }
+            & > .switch {
+                width: 20px;
+                height: 12px;
+                background: #4b4a65;
+                margin: auto 0;
+                margin-left: 5px;
+                border-radius: 20px;
+                position: relative;
+                &.active {
+                    &::after {
+                        left: 3px;
+                        background: #272738;
+                    }
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 9px;
+                    top: -1px;
+                    bottom: 0;
+                    margin: auto 0;
+                    margin-right: 3px;
+                    width: 8px;
+                    height: 8px;
+                    background: #a9ff53;
+                    border-radius: 4px;
+                    transition: background 200ms ease, left 200ms ease;
+                }
+            }
             & > .price {
                 font-weight: 600;
                 color: #A9FF53;
+                margin-left: 5px;
             }
         }
     }   

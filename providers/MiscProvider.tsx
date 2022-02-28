@@ -2,8 +2,17 @@ import * as React from "react";
 
 import { MiscData } from './types';
 
+let light = false;
+
 type MiscContextProps = {
     miscData: MiscData,
+    changeLight: (event: React.MouseEvent<HTMLElement>) => void
+}
+
+const swapLight = () => {
+    light = !light;
+
+    return light;
 }
 
 export const MiscContext = React.createContext<MiscContextProps>({
@@ -12,8 +21,9 @@ export const MiscContext = React.createContext<MiscContextProps>({
         ethereum: 0,
         solana: 0,
         light: false,
-        currency: "USD",
-    }
+        currency: "USD"
+    },
+    changeLight: swapLight
 });
 
 const MiscProvider: React.FC = ({ children }) => {
@@ -24,6 +34,15 @@ const MiscProvider: React.FC = ({ children }) => {
         light: false,
         currency: "USD"
     } as MiscData);
+
+    async function changeLight() {
+        const lightState = await swapLight();
+
+        setMiscData({
+            ...miscData,
+            light: lightState
+        })
+    }
 
     React.useEffect(() => {
         const getPrices = async () => {
@@ -46,7 +65,7 @@ const MiscProvider: React.FC = ({ children }) => {
     }, []);
 
     return (
-        <MiscContext.Provider value={{ miscData: miscData }}>
+        <MiscContext.Provider value={{ miscData: miscData, changeLight: changeLight }}>
             {children}
         </MiscContext.Provider>
     )
