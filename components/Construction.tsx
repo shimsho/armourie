@@ -21,6 +21,8 @@ const Root = styled.div`
     display: flex;
     flex-direction: column;
     margin: auto 0;
+    position: relative;
+    top: -50px;
     & > h2 {
         font-family: Poppins, Roboto;
         font-weight: 400;

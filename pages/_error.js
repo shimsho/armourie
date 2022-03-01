@@ -1,4 +1,4 @@
-import { Construction } from "../components/Construction";
+import { Construction } from "@/components/Construction";
 
 function Error({ statusCode }) {
   return <Construction />;

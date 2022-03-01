@@ -11,17 +11,10 @@ import { WalletProvider } from "@/providers/WalletProvider";
 import { MiscProvider } from "@/providers/MiscProvider";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => setLoaded(true), 400);
-  }, [])
-
   return (
     <MiscProvider>
       <WalletProvider>
         <NextNProgress color="#A9FF53" height={2} stopDelayMs={50} />
-        {loaded ? '' : <div className="blank" />}
         <div className="container">
           <Navigation />
           <Component {...pageProps} />
